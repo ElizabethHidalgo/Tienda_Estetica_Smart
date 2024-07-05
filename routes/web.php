@@ -11,3 +11,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return redirect('/admin/login');
 })->name('filament.auth.login');
+
+Livewire::setUpdateRoute(function($handle){
+    return Route::post('/Tienda_Estetica_Smart/public/livewire/update',$handle);
+});
