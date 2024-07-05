@@ -265,7 +265,7 @@
                 <a href="#"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
             </li>
             <li class="user-icon">
-            <a href="{{ route('filament.auth.login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i></a>
+            <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i></a>
             </li>
         </ul>
     </nav>
