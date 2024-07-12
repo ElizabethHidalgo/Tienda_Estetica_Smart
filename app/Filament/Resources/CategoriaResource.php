@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProductosResource\Pages;
-use App\Filament\Resources\ProductosResource\RelationManagers;
-use App\Models\Producto;
+use App\Filament\Resources\CategoriaResource\Pages;
+use App\Filament\Resources\CategoriaResource\RelationManagers;
+use App\Models\Categoria;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ProductosResource extends Resource
+class CategoriaResource extends Resource
 {
-    protected static ?string $model = Producto::class;
+    protected static ?string $model = Categoria::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,14 +24,11 @@ class ProductosResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('nombre')
-                ->required()
-                ->maxLength(255),
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('descripcion')
-                ->required()
-                ->maxLength(255),
-                Forms\Components\TextInput::make('precio')
-                ->required()
-                ->maxLength(255),
+                    ->maxLength(255)
+                    ->default(null),
             ]);
     }
 
@@ -39,9 +36,18 @@ class ProductosResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nombre'),
-                Tables\Columns\TextColumn::make('descripcion'),
-                Tables\Columns\TextColumn::make('precio'),
+                Tables\Columns\TextColumn::make('nombre')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('descripcion')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
@@ -66,9 +72,9 @@ class ProductosResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListProductos::route('/'),
-            'create' => Pages\CreateProductos::route('/create'),
-            'edit' => Pages\EditProductos::route('/{record}/edit'),
+            'index' => Pages\ListCategorias::route('/'),
+            'create' => Pages\CreateCategoria::route('/create'),
+            'edit' => Pages\EditCategoria::route('/{record}/edit'),
         ];
     }
 }
