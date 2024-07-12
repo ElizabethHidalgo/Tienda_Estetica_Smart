@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Producto extends Model
+class Categoria extends Model
 {
     use HasFactory;
     protected $guarded = [];
     
-    public function categoria() : BelongsTo {
-        return $this->belongsTo(Categoria::class);
+    public function productos() : HasMany {
+        return $this->hasMany(Producto::class);
     }
 }

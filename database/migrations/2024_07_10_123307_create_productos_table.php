@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('descripcion');
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->double('precio');
+            $table->string('image_url');
             $table->timestamps();
         });
     }

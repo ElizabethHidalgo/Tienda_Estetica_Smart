@@ -259,7 +259,7 @@
         <ul class="nav-links">
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Servicio</a></li>
-            <li><a href="#">Productos</a></li>
+            <li><a href="{{ route('productos.index') }}">Productos</a></li>
             <li><a href="#">Contactos</a></li>
             <li class="cart-icon">
                 <a href="#"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
