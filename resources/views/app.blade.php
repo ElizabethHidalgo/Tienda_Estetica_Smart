@@ -262,7 +262,7 @@
             <li><a href="#">Productos</a></li>
             <li><a href="#">Contactos</a></li>
             <li class="cart-icon">
-                <a href="#"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
+                <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
             </li>
             <li class="user-icon">
                 <a href="#"><i class="fas fa-user" style="color: white; font-size: 24px;"></i></a>
