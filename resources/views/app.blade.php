@@ -259,13 +259,13 @@
         <ul class="nav-links">
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Servicio</a></li>
-            <li><a href="#">Productos</a></li>
+            <li><a href="{{ route('productos.index') }}">Productos</a></li>
             <li><a href="#">Contactos</a></li>
             <li class="cart-icon">
                 <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
             </li>
             <li class="user-icon">
-                <a href="#"><i class="fas fa-user" style="color: white; font-size: 24px;"></i></a>
+            <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i></a>
             </li>
         </ul>
     </nav>
