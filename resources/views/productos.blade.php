@@ -16,6 +16,12 @@
         .font-family-karla {
             font-family: karla;
         }
+
+        body {
+        background: url('imagenes/Index.png') no-repeat center center fixed;
+        background-size: cover;
+    }
+
     </style>
 
     
@@ -30,8 +36,7 @@
 
             <nav>
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Shop</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="#">About</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Inicio</a></li>
                 </ul>
             </nav>
 
@@ -56,10 +61,10 @@
     <!-- Text Header -->
     <header class="w-full container mx-auto">
         <div class="flex flex-col items-center py-12">
-            <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="#">
+            <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="#" style="color: white;">
                 PRODUCTOS
             </a>
-            <p class="text-lg text-gray-600">
+            <p class="text-lg text-gray-600" style="color: white;">
                 Tecno Centro Smart
             </p>
         </div>
@@ -79,11 +84,11 @@
 
     <div class="container mx-auto flex flex-wrap py-6">
 
-        <!-- Posts Section -->
+        <!-- Seccion de Productos -->
         <section class="w-full md:w-2/3 flex flex-col items-center px-3">
             @foreach($productos as $productos)
                 <article class="flex flex-col shadow my-4">
-                    <!-- Article Image -->
+                    <!-- productos -->
                     <a href="#" class="hover:opacity-75">
                         <img src="https://localhost:8000/storage/{{$productos->image_url}}">
                     </a>
@@ -94,13 +99,13 @@
                         <a href="#" class="font-semibold hover:text-gray-800">Informacion:</a>{{$productos->descripcion}}
                         </p>
                         <a href="#" class="pb-6">PRECIO: $ {{$productos->precio}}</a>
-                        <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="uppercase text-gray-800 hover:text-black">Más Información <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
             @endforeach
             
 
-            <!-- Pagination -->
+            <!-- Paginacion -->
             <div class="flex items-center py-8">
                 <a href="#" class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>
                 <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center">2</a>
@@ -109,14 +114,14 @@
 
         </section>
 
-        <!-- Sidebar Section -->
+        <!-- Columna numero 2 -->
         <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
 
             <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                <p class="text-xl font-semibold pb-5">About Us</p>
-                <p class="pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In hac habitasse platea dictumst.</p>
+                <p class="text-xl font-semibold pb-5">PRODUCTOS DE OFERTA</p>
+                <p class="pb-2">Encuentra los nuevos productos de oferta en nuestra tienda.</p>
                 <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
-                    Get to know us
+                    Comprar Ahora
                 </a>
             </div>
 
@@ -134,7 +139,7 @@
                 <a href="#" class="uppercase px-3">Terms & Conditions</a>
                 <a href="#" class="uppercase px-3">Contact Us</a>
             </div>
-            <div class="uppercase pb-6">&copy; myblog.com</div>
+            <div class="uppercase pb-6">&copy; Tecno Centro Smart</div>
         </div>
     </footer>
 
