@@ -248,7 +248,7 @@
 
 <body>
     <nav class="navbar">
-        <div class="navbar-brand">Tecno Centro Smart</div>
+        <div class="navbar-brand">Tienda Estetica Smart</div>
         <div class="search-container">
             <input class="form-control me-2" type="search" placeholder="🔍Ingrese su búsqueda aquí" aria-label="Search">
             <circle cx="11" cy="11" r="8"></circle>
@@ -259,10 +259,10 @@
         <ul class="nav-links">
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Servicio</a></li>
-            <li><a href="#">Productos</a></li>
+            <li><a href="{{ route('productos.index') }}">Productos</a></li>
             <li><a href="#">Contactos</a></li>
             <li class="cart-icon">
-                <a href="#"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
+                <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
             </li>
             <li class="user-icon">
             <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i></a>
