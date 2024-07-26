@@ -54,6 +54,22 @@
             background-color: #218838;
             border-color: #1e7e34;
         }
+        .btn-back {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-back:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
         #success-message {
             margin-bottom: 20px;
             color: #155724;
@@ -69,17 +85,28 @@
         .form-control {
             color: #495057;
         }
+        .mt-3 {
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Carrito </h1>
+        <h1>Carrito</h1>
 
         <div class="alert alert-success" id="success-message" style="display: none;">
             <!-- Mensaje de éxito -->
         </div>
 
-        <div id="carrito">
+        <!-- Mensaje de carrito vacío -->
+        <div id="no-items-message" style="display: none;">
+            <p>Tu Carrito de tecno está vacío</p>
+            <button onclick="location.href='/login'" class="btn btn-secondary mt-3">Inicia sesión en tu cuenta</button>
+            <button onclick="location.href='/register'" class="btn btn-secondary mt-3">Regístrate ahora</button>
+        </div>
+
+        <!-- Contenido del carrito -->
+        <div id="carrito" style="display: none;">
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
@@ -108,41 +135,27 @@
                 </tbody>
             </table>
         </div>
-        <p id="no-items-message" style="display: none;">No hay productos en el carrito.</p>
-
-        <form action="/carrito/agregar" method="POST">
-            <div class="form-group">
-                <label for="producto_id">Selecciona un producto:</label>
-                <select name="producto_id" id="producto_id" class="form-control">
-                    <option value="1">Producto 1</option>
-                    <option value="2">Producto 2</option>
-                    <option value="3">Producto 3</option>
-                    <option value="4">Producto 4</option>
-                    <option value="5">Producto 5</option>
-                    <option value="6">Producto 6</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="quantity">Cantidad:</label>
-                <input type="number" name="quantity" id="quantity" class="form-control" value="1">
-            </div>
-            <button type="submit" class="btn btn-primary">Agregar al Carrito</button>
-        </form>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var carrito = true;
+            var isAuthenticated = false; // Simula el estado de autenticación del usuario
+            var hasItemsInCart = false; // Simula si hay productos en el carrito
 
-            if (carrito) {
-                document.getElementById('carrito').style.display = 'block';
-                document.getElementById('no-items-message').style.display = 'none';
+            if (isAuthenticated) {
+                if (hasItemsInCart) {
+                    document.getElementById('carrito').style.display = 'block';
+                    document.getElementById('no-items-message').style.display = 'none';
+                } else {
+                    document.getElementById('carrito').style.display = 'none';
+                    document.getElementById('no-items-message').style.display = 'block';
+                }
             } else {
                 document.getElementById('carrito').style.display = 'none';
                 document.getElementById('no-items-message').style.display = 'block';
             }
 
-            var successMessage = "Producto agregado con éxito";
+            var successMessage = ""; // Deja vacío si no hay mensaje de éxito
             if (successMessage) {
                 var messageElement = document.getElementById('success-message');
                 messageElement.textContent = successMessage;
