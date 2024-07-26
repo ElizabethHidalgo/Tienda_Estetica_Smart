@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos </title>
-    <meta name="author" content="Ismael Catala">
-    <meta name="description" content="El Rincon de Isma">
+    <meta name="description" content="Tecno Centro Smart">
 
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
@@ -18,16 +17,16 @@
         }
 
         body {
-        background: url('imagenes/Index.png') no-repeat center center fixed;
-        background-size: cover;
-    }
-
+            background: url('imagenes/Index.png') no-repeat center center fixed;
+            background-size: cover;
+        }
     </style>
 
-    
+
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </head>
+
 <body class="bg-white font-family-karla">
 
     <!-- Top Bar Nav -->
@@ -73,11 +72,10 @@
     <!-- Topic Nav -->
     <nav class="w-full py-4 border-t border-b bg-gray-100" ">
         
-        <div class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-            <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Teclados</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Mouses</a>
-            </div>
+        <div class=" w-full flex-grow sm:flex sm:items-center sm:w-auto">
+        <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"></a>
+        </div>
         </div>
     </nav>
 
@@ -87,23 +85,23 @@
         <!-- Seccion de Productos -->
         <section class="w-full md:w-2/3 flex flex-col items-center px-3">
             @foreach($productos as $productos)
-                <article class="flex flex-col shadow my-4">
-                    <!-- productos -->
-                    <a href="#" class="hover:opacity-75">
-                        <img src="https://localhost:8000/storage/{{$productos->image_url}}">
-                    </a>
-                    <div class="bg-white flex flex-col justify-start p-6">
-                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{$productos->categoria->nombre}}</a>
-                        <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">{{$productos->nombre}}</a>
-                        <p href="#" class="text-sm pb-3">
+            <article class="flex flex-col shadow my-4">
+                <!-- productos -->
+                <a href="#" class="hover:opacity-75">
+                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . $productos->image_url) }}">
+                </a>
+                <div class="bg-white flex flex-col justify-start p-6">
+                    <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{$productos->categoria->nombre}}</a>
+                    <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">{{$productos->nombre}}</a>
+                    <p href="#" class="text-sm pb-3">
                         <a href="#" class="font-semibold hover:text-gray-800">Informacion:</a>{{$productos->descripcion}}
-                        </p>
-                        <a href="#" class="pb-6">PRECIO: $ {{$productos->precio}}</a>
-                        <a href="#" class="uppercase text-gray-800 hover:text-black">Más Información <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+                    </p>
+                    <a href="#" class="pb-6">PRECIO: $ {{$productos->precio}}</a>
+                    <a href="#" class="uppercase text-gray-800 hover:text-black">Más Información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
             @endforeach
-            
+
 
             <!-- Paginacion -->
             <div class="flex items-center py-8">
@@ -124,14 +122,11 @@
                     Comprar Ahora
                 </a>
             </div>
-
-
         </aside>
-
     </div>
 
     <footer class="w-full border-t bg-white pb-12">
-        
+
         <div class="w-full container mx-auto flex flex-col items-center">
             <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
                 <a href="#" class="uppercase px-3">About Us</a>
@@ -142,8 +137,6 @@
             <div class="uppercase pb-6">&copy; Tecno Centro Smart</div>
         </div>
     </footer>
-
-    
-
 </body>
+
 </html>

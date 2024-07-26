@@ -281,9 +281,9 @@
                 <p>Explora nuestra amplia selección de accesorios para computadoras, desde potentes mouse y teclados
                     mecánicos hasta componentes de vanguardia. Ofrecemos productos de alta calidad que mejorarán tu
                     experiencia informática.</p>
-                <div>
-                    <button class="btn">Más Información</button>
-                    <button class="btn">Explorar Accesorios</button>
+                <div>              
+                    <a href="{{ url('/masinfo') }}" class="btn btn">Más Información</a>
+                    <a href="{{ route('productos.index') }}" class="btn">Explorar Accesorios</a>
                 </div>
             </div>
 
@@ -295,5 +295,4 @@
         </div>
     </div>
 </body>
-
 </html>
