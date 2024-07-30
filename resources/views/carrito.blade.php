@@ -156,7 +156,7 @@
             <div id="search-message" style="text-align: center; margin-top: 20px; color: white;"></div>
         </div>
         <ul class="nav-links">
-            <li><a href="/">Inicio</a></li>
+            <li><a href="http://localhost/Tienda_Estetica_Smart/public/">Inicio</a></li>
             <li><a href="#">Servicio</a></li>
             <li><a href="{{ route('productos.index') }}">Productos</a></li>
             <li><a href="#">Contactos</a></li>
@@ -188,6 +188,7 @@
         </div>
         <p id="no-items-message" style="display: none;">No hay productos en el carrito.</p>
         <button class="btn-crud green" onclick="vaciarCarrito()">Vaciar Carrito</button>
+        <button class="btn-crud" onclick="generarFactura()">Generar Factura</button>
     </div>
 
     <script>
