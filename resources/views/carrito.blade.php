@@ -149,7 +149,7 @@
 
 <body>
     <nav class="navbar">
-        <div class="navbar-brand">Tienda Estetica Smart</div>
+        <div class="navbar-brand">Tecno Centro Smart</div>
         <div class="search-container">
             <input class="form-control me-2" type="search" placeholder="🔍 Ingrese su búsqueda aquí" aria-label="Search" id="search-input">
             <button class="btn-search" type="submit" onclick="buscarProducto()">Buscar</button>
@@ -256,5 +256,6 @@
             }
         }
     </script>
+
 </body>
 </html>
