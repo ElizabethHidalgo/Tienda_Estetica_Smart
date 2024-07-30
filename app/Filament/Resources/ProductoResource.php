@@ -38,7 +38,7 @@ class ProductoResource extends Resource
                 Forms\Components\FileUpload::make('image_url')
                     ->directory('images') // Guarda las imágenes en el directorio 'images'
                     ->image()
-                    
+                    ->ImageEditor()
                     ->required(),
             ]);
     }
