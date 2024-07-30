@@ -17,7 +17,7 @@ class ProductoResource extends Resource
 {
     protected static ?string $model = Producto::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
     public static function form(Form $form): Form
     {
@@ -38,7 +38,7 @@ class ProductoResource extends Resource
                 Forms\Components\FileUpload::make('image_url')
                     ->directory('images') // Guarda las imágenes en el directorio 'images'
                     ->image()
-                    ->imageEditor()
+                    ->ImageEditor()
                     ->required(),
             ]);
     }
@@ -58,9 +58,7 @@ class ProductoResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('image_url')
-                    ->label('Imagen')
-                    ->url(fn ($record) => asset('images/' . $record->image_url))
-                    ->size(50, 50),
+                    ,
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -74,7 +72,9 @@ class ProductoResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -3,152 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Tienda Estetica Smart</title>
     <style>
         body {
-            background-color: #f8f9fa;
+            background: url('imagenes/Index.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            height: 100%;
         }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: #ff5722;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 1rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-control {
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+            color: #ffffff;
+            box-shadow: none;
+            height: 2.5rem;
+            width: 300px;
+        }
+
+        .form-control::placeholder {
+            color: #9e9e9e;
+        }
+
+        .btn-search {
+            background-color: rgba(36, 133, 173, 0.7);
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-search:hover {
+            background-color: rgba(21, 101, 192, 0.7);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
         .container {
-            margin-top: 50px;
-            background-color: #ffffff;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            margin-bottom: 30px;
+            width: 80%;
+            max-width: 800px;
             color: #343a40;
         }
+
         .table {
             margin-bottom: 0;
+            width: 100%;
         }
+
         .thead-dark th {
+            background-color: #343a40;
             color: #ffffff;
         }
-        .form-group label {
-            font-weight: bold;
-            color: #495057;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-        .btn-danger {
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-        .btn-danger:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
-        }
-        .btn-success {
-            background-color: #28a745;
-            border-color: #28a745;
-        }
-        .btn-success:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
-        }
-        #success-message {
-            margin-bottom: 20px;
-            color: #155724;
-        }
+
         #no-items-message {
             text-align: center;
             color: #6c757d;
             font-size: 1.2em;
         }
-        td {
-            color: #495057;
+
+        .btn-crud {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5rem;
         }
-        .form-control {
-            color: #495057;
+
+        .btn-crud:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-crud.red {
+            background-color: #dc3545;
+        }
+
+        .btn-crud.red:hover {
+            background-color: #c82333;
+        }
+
+        .btn-crud.green {
+            background-color: #28a745;
+        }
+
+        .btn-crud.green:hover {
+            background-color: #218838;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Carrito </h1>
-
-        <div class="alert alert-success" id="success-message" style="display: none;">
-            <!-- Mensaje de éxito -->
+    <nav class="navbar">
+        <div class="navbar-brand">Tienda Estetica Smart</div>
+        <div class="search-container">
+            <input class="form-control me-2" type="search" placeholder="🔍 Ingrese su búsqueda aquí" aria-label="Search" id="search-input">
+            <button class="btn-search" type="submit" onclick="buscarProducto()">Buscar</button>
+            <div id="search-message" style="text-align: center; margin-top: 20px; color: white;"></div>
         </div>
+        <ul class="nav-links">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#">Servicio</a></li>
+            <li><a href="{{ route('productos.index') }}">Productos</a></li>
+            <li><a href="#">Contactos</a></li>
+            <li class="cart-icon">
+                <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
+            </li>
+            <li class="user-icon">
+                <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i></a>
+            </li>
+        </ul>
+    </nav>
 
+    <div class="container">
+        <h1>Carrito de Compras</h1>
+        <div class="alert alert-success" id="success-message" style="display: none;"></div>
         <div id="carrito">
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
                         <th>Producto</th>
-                        <th>Cantidad</th>
                         <th>Precio</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Producto 1</td>
-                        <td>1</td>
-                        <td>$10.00</td>
-                        <td>
-                            <form action="/carrito/eliminar" method="POST" style="display: inline;">
-                                <input type="hidden" name="item_id" value="1">
-                                <button type="submit" class="btn btn-danger">Cancelar</button>
-                            </form>
-                            <form action="/carrito/pagar" method="POST" style="display: inline;">
-                                <input type="hidden" name="item_id" value="1">
-                                <button type="submit" class="btn btn-success">Pagar</button>
-                            </form>
-                        </td>
-                    </tr>
+                <tbody id="carrito-items">
+                    <!-- Productos agregados al carrito se mostrarán aquí -->
                 </tbody>
             </table>
         </div>
         <p id="no-items-message" style="display: none;">No hay productos en el carrito.</p>
-
-        <form action="/carrito/agregar" method="POST">
-            <div class="form-group">
-                <label for="producto_id">Selecciona un producto:</label>
-                <select name="producto_id" id="producto_id" class="form-control">
-                    <option value="1">Producto 1</option>
-                    <option value="2">Producto 2</option>
-                    <option value="3">Producto 3</option>
-                    <option value="4">Producto 4</option>
-                    <option value="5">Producto 5</option>
-                    <option value="6">Producto 6</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="quantity">Cantidad:</label>
-                <input type="number" name="quantity" id="quantity" class="form-control" value="1">
-            </div>
-            <button type="submit" class="btn btn-primary">Agregar al Carrito</button>
-        </form>
+        <button class="btn-crud green" onclick="vaciarCarrito()">Vaciar Carrito</button>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var carrito = true;
+        function mostrarCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const carritoItems = document.getElementById('carrito-items');
+            carritoItems.innerHTML = '';
 
-            if (carrito) {
-                document.getElementById('carrito').style.display = 'block';
-                document.getElementById('no-items-message').style.display = 'none';
-            } else {
+            if (carrito.length === 0) {
                 document.getElementById('carrito').style.display = 'none';
                 document.getElementById('no-items-message').style.display = 'block';
+            } else {
+                document.getElementById('carrito').style.display = 'block';
+                document.getElementById('no-items-message').style.display = 'none';
+                carrito.forEach((item, index) => {
+                    carritoItems.innerHTML += `
+                        <tr>
+                            <td>${item.nombre}</td>
+                            <td>$${item.precio.toFixed(2)}</td>
+                            <td>
+                                <button class="btn-crud green" onclick="editarProducto(${index})">Editar</button>
+                                <button class="btn-crud red" onclick="eliminarProducto(${index})">Eliminar</button>
+                            </td>
+                        </tr>
+                    `;
+                });
             }
+        }
 
-            var successMessage = "Producto agregado con éxito";
-            if (successMessage) {
-                var messageElement = document.getElementById('success-message');
-                messageElement.textContent = successMessage;
-                messageElement.style.display = 'block';
+        function eliminarProducto(index) {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+
+        function editarProducto(index) {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const producto = carrito[index];
+            const nuevoPrecio = prompt("Ingrese el nuevo precio para el producto:", producto.precio);
+            if (nuevoPrecio !== null && !isNaN(nuevoPrecio) && parseFloat(nuevoPrecio) >= 0) {
+                producto.precio = parseFloat(nuevoPrecio);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                mostrarCarrito();
+            } else {
+                alert("Precio inválido. Por favor, ingrese un número válido.");
             }
-        });
+        }
+
+        function vaciarCarrito() {
+            if (confirm("¿Está seguro de que desea vaciar el carrito?")) {
+                localStorage.removeItem('carrito');
+                mostrarCarrito();
+            }
+        }
+
+        window.onload = mostrarCarrito;
+
+        function buscarProducto() {
+            const searchInput = document.getElementById('search-input').value.trim();
+            if (searchInput) {
+                window.location.href = `/buscar?query=${encodeURIComponent(searchInput)}`;
+            } else {
+                document.getElementById('search-message').textContent = "Por favor, ingrese un término de búsqueda.";
+            }
+        }
     </script>
 </body>
 </html>
