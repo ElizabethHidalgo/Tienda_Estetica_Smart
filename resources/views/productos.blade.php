@@ -139,12 +139,39 @@
 
 <body class="bg-white font-family-karla">
 
+
+    <!-- Top Bar Nav -->
+    <nav class="w-full py-4 bg-blue-800 shadow">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
+
+            <nav>
+                <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="">Inicio</a></li>
+                </ul>
+            </nav>
+
+            <div class="flex items-center text-lg no-underline text-white pr-6">
+                <a class="" href="#">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a class="pl-6" href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="pl-6" href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="pl-6" href="#">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-brand">Tienda Estetica Smart</div>
         <div class="search-container">
             <input class="form-control" type="search" placeholder="🔍 Ingrese su búsqueda aquí" aria-label="Search">
             <button class="btn-search" type="submit">Buscar</button>
+
         </div>
         <ul class="nav-links">
             <li><a href="{{ url('/') }}">Inicio</a></li>
