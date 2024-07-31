@@ -176,6 +176,7 @@
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
+                        <th>Imagen</th>
                         <th>Producto</th>
                         <th>Precio</th>
                         <th>Acciones</th>
@@ -192,50 +193,37 @@
     </div>
 
     <script>
-        function mostrarCarrito() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const carritoItems = document.getElementById('carrito-items');
-            carritoItems.innerHTML = '';
+function mostrarCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const carritoItems = document.getElementById('carrito-items');
+    carritoItems.innerHTML = '';
 
-            if (carrito.length === 0) {
-                document.getElementById('carrito').style.display = 'none';
-                document.getElementById('no-items-message').style.display = 'block';
-            } else {
-                document.getElementById('carrito').style.display = 'block';
-                document.getElementById('no-items-message').style.display = 'none';
-                carrito.forEach((item, index) => {
-                    carritoItems.innerHTML += `
-                        <tr>
-                            <td>${item.nombre}</td>
-                            <td>$${item.precio.toFixed(2)}</td>
-                            <td>
-                                <button class="btn-crud green" onclick="editarProducto(${index})">Editar</button>
-                                <button class="btn-crud red" onclick="eliminarProducto(${index})">Eliminar</button>
-                            </td>
-                        </tr>
-                    `;
-                });
-            }
-        }
+    if (carrito.length === 0) {
+        document.getElementById('carrito').style.display = 'none';
+        document.getElementById('no-items-message').style.display = 'block';
+    } else {
+        document.getElementById('carrito').style.display = 'block';
+        document.getElementById('no-items-message').style.display = 'none';
+        carrito.forEach((item, index) => {
+            carritoItems.innerHTML += `
+                <tr>
+                    <td><img src="${item.imageUrl}" alt="${item.nombre}" style="width: 50px; height: 50px; object-fit: cover;"></td>
+                    <td>${item.nombre}</td>
+                    <td>$${item.precio.toFixed(2)}</td>
+                    <td>
+                        <button class="btn-crud red" onclick="eliminarProducto(${index})">Eliminar</button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+}
 
         function eliminarProducto(index) {
             const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             carrito.splice(index, 1);
             localStorage.setItem('carrito', JSON.stringify(carrito));
             mostrarCarrito();
-        }
-
-        function editarProducto(index) {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const producto = carrito[index];
-            const nuevoPrecio = prompt("Ingrese el nuevo precio para el producto:", producto.precio);
-            if (nuevoPrecio !== null && !isNaN(nuevoPrecio) && parseFloat(nuevoPrecio) >= 0) {
-                producto.precio = parseFloat(nuevoPrecio);
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                mostrarCarrito();
-            } else {
-                alert("Precio inválido. Por favor, ingrese un número válido.");
-            }
         }
 
         function vaciarCarrito() {
