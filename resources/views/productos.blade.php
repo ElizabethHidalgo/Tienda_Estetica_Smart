@@ -19,7 +19,7 @@
         body {
             background: url('imagenes/Index.png') no-repeat center center fixed;
             background-size: cover;
-            
+
             font-family: 'Arial', sans-serif;
             margin: 0;
             height: 100vh;
@@ -137,55 +137,82 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </head>
 
+
 <body class="bg-white font-family-karla">
 
-
-    <!-- Top Bar Nav -->
-    <nav class="w-full py-4 bg-blue-800 shadow">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
-
-            <nav>
-                <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="">Inicio</a></li>
-                </ul>
-            </nav>
-
-            <div class="flex items-center text-lg no-underline text-white pr-6">
-                <a class="" href="#">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a class="pl-6" href="#">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a class="pl-6" href="#">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a class="pl-6" href="#">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-brand">Tienda Estetica Smart</div>
-        <div class="search-container">
-            <input class="form-control" type="search" placeholder="🔍 Ingrese su búsqueda aquí" aria-label="Search">
-            <button class="btn-search" type="submit">Buscar</button>
-
+<nav class="bg-gray-800 bg-opacity-10 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Branding -->
+        <div class="text-white font-bold text-5xl" style="color: #ff5722;">
+            Tecno Centro Smart
         </div>
-        <ul class="nav-links">
-            <li><a href="{{ url('/') }}">Inicio</a></li>
-            <li><a href="#">Servicio</a></li>
-            <li><a href="{{ route('productos.index') }}">Productos</a></li>
-            <li><a href="#">Contactos</a></li>
+
+        <!-- Toggle button for mobile -->
+        <div class="block lg:hidden">
+            <button id="menu-toggle" class="text-white focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Search bar -->
+        <div class="flex-1 hidden lg:flex justify-center">
+            <div class="flex items-center w-full max-w-xs">
+                <input class="form-control flex-grow pl-10 pr-4 py-2 bg-white text-gray-700 rounded-lg focus:outline-none" type="search" placeholder="🔍 Ingrese su búsqueda" aria-label="Search">
+
+                <button class="ml-2 px-4 py-2 text-gray-700 bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none" type="submit">Buscar</button>
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul id="nav-links" class="hidden lg:flex space-x-6 text-white">
+            <li><a href="{{ url('/') }}" class="hover:text-blue-300 text-2xl">Inicio</a></li>
+            <li><a href="#" class="hover:text-blue-300 text-2xl">Servicio</a></li>
+            <li><a href="{{ route('productos.index') }}" class="hover:text-blue-300 text-2xl">Productos</a></li>
+            <li><a href="{{ route('contacto') }}" class="hover:text-blue-300 text-2xl">Contactos</a></li>
             <li class="cart-icon">
-                <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
+                <a href="ca" class="flex items-center hover:text-blue-300 text-2xl"><i class="fas fa-shopping-cart mr-2"></i>Carrito</a>
             </li>
             <li class="user-icon">
-                <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i></a>
+                <a href="{{ route('login') }}" class="hover:text-blue-300 text-2xl"><i class="fas fa-user mr-2"></i>Perfil</a>
             </li>
         </ul>
-    </nav>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="lg:hidden hidden">
+        <ul class="flex flex-col items-center space-y-4 text-white mt-4">
+            <li><a href="{{ url('/') }}" class="hover:text-blue-300">Inicio</a></li>
+            <li><a href="#" class="hover:text-blue-300">Servicio</a></li>
+            <li><a href="{{ route('productos.index') }}" class="hover:text-blue-300">Productos</a></li>
+            <li><a href="#" class="hover:text-blue-300">Contactos</a></li>
+            <li class="cart-icon">
+                <a href="#" class="flex items-center hover:text-blue-300"><i class="fas fa-shopping-cart mr-2"></i>Carrito</a>
+            </li>
+            <li class="user-icon">
+                <a href="{{ route('login') }}" class="hover:text-blue-300"><i class="fas fa-user mr-2"></i>Perfil</a>
+            </li>
+        </ul>
+        <!-- Search bar for mobile -->
+        <div class="flex lg:hidden flex-1 justify-center mt-4">
+            <div class="flex items-center w-full max-w-xs">
+                <input class="form-control flex-grow pl-10 pr-4 py-2 bg-white text-gray-700 rounded-lg focus:outline-none" type="search" placeholder="🔍 Ingrese su búsqueda" aria-label="Search">
+
+                <button class="ml-2 px-4 py-2 text-gray-700 bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none" type="submit">Buscar</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+    <script>
+        // Script para manejar el toggle del menú en móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
 
     <!-- Header -->
     <header class="w-full container mx-auto">
@@ -198,15 +225,18 @@
             </p>
         </div>
     </header>
-
-    <!-- Topic Nav
+    <!-- Categorías de Productos -->
     <nav class="w-full py-4 border-t border-b bg-gray-100">
         <div class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
             <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">xd</a>
+                <a href="{{ route('productos.index') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Todas</a> <!-- Enlace para mostrar todos los productos -->
+                @foreach($categorias as $categoria)
+                    <a href="{{ route('productos.index', ['categoria' => $categoria->id]) }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ $categoria->nombre }}</a>
+                @endforeach
             </div>
         </div>
-    </nav> -->
+    </nav>
+
 
     <div class="container mx-auto py-6">
 
@@ -217,42 +247,36 @@
                 <article class="flex flex-col shadow my-4">
                     <!-- productos -->
                     <div class="bg-white flex flex-col justify-start p-6">
-                    <a href="#" class="hover:opacity-75">
-                        <img src="{{ asset('http://127.0.0.1:8000/storage/' . $producto->image_url) }}">
-                    </a>
+                        <a href="#" class="hover:opacity-75">
+                            <img src="{{ asset('storage/' . $producto->image_url) }}" class="w-full h-64 object-cover">
+                        </a>
                         <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{$producto->categoria->nombre}}</a>
                         <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">{{$producto->nombre}}</a>
-                        <p href="#" class="text-sm pb-3">
-                            <a href="#" class="font-semibold hover:text-gray-800">Informacion:</a> {{$producto->descripcion}}
+                        <p class="text-sm pb-3">
+                            <span class="font-semibold hover:text-gray-800">Información:</span> {{$producto->descripcion}}
                         </p>
-                        <a href="#" class="pb-6">PRECIO: $ {{$producto->precio}}</a>
+                        <span class="pb-6">PRECIO: $ {{$producto->precio}}</span>
                         <a href="#" class="uppercase text-gray-800 hover:text-black">Más Información <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 @endforeach
             </div>
 
-            <!-- Paginacion -->
+            <!-- Paginación -->
             <div class="flex items-center py-8">
-                <a href="#" class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>
-                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center">2</a>
-                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3">Next <i class="fas fa-arrow-right ml-2"></i></a>
+                {{ $productos->links() }}
             </div>
         </section>
+
+
     </div>
 
 
     <footer class="w-full border-t bg-white pb-12">
         <div class="w-full container mx-auto flex flex-col items-center">
-            <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-                <a href="#" class="uppercase px-3">About Us</a>
-                <a href="#" class="uppercase px-3">Privacy Policy</a>
-                <a href="#" class="uppercase px-3">Terms & Conditions</a>
-                <a href="#" class="uppercase px-3">Contact Us</a>
-            </div>
-            <div class="uppercase pb-6">&copy; Tecno Centro Smart</div>
+            <div class="uppercase pb-6"><br>&copy; Tecno Centro Smart</div>
         </div>
     </footer>
-    </body>
+</body>
+
 </html>
-       

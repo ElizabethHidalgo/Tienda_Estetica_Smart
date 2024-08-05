@@ -4,6 +4,7 @@ use Filament\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CategoriaController;
 use Livewire\Livewire;
 
 Route::get('/', function () {
@@ -30,8 +31,6 @@ Livewire::setUpdateRoute(function($handle){
 
    return Route::post('/tienda/public/livewire/update',$handle);
 
-    return Route::post('/tienda/public/livewire/update',$handle);
-
 });
 
 
@@ -40,22 +39,13 @@ Route::get('/login', function () {
 })->name('login');
 
 
-/*Livewire::setupUpdateRoute(function($handle) {
-    return Route::post('/Tienda_Estetica_Smart/public/livewire/update', $handle);
-});*/
-
 Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
 Route::get('/Contacto', function () {
     return view('contacto');
 })->name('contacto');
 
 
-
-Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
-
-Livewire::setUpdateRoute(function($handle) {
-    return Route::post('/tienda/public/livewire/update', $handle);
-});
+Route::get('/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
 
 Route::get('/masinfo', function () {
     return view('masinfo');
