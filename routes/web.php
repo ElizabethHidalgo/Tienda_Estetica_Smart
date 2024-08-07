@@ -44,6 +44,9 @@ Route::get('/Contacto', function () {
     return view('contacto');
 })->name('contacto');
 
+Route::get('/Servicio', function () {
+    return view('servicio');
+})->name('servicio');
 
 Route::get('/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
 

@@ -39,9 +39,10 @@
             <button class="btn-search" type="submit">Buscar</button>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="{{ route('productos.index') }}">Productos</a></li>
+        <li><a href="{{ url('/') }}" class="hover:text-blue-300">Inicio</a></li> 
+        <li><a href="{{ route('productos.index') }}">Productos</a></li>
             <li><a href="{{ route('contacto') }}">Contactos</a></li>
+            <li><a href="{{ route('servicio') }}">Servicio</a></li>
             <li class="cart-icon">
                 <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
             </li>
