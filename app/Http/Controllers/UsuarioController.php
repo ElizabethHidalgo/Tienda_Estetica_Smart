@@ -1,31 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Categoria;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class CategoriaController extends Controller
+class UsuarioController extends Controller
 {
     public function index()
     {
         // Obtener todas las categorías
-        $categorias = Categoria::all();
+        $usuarios = Usuario::all();
 
         // Pasar las categorías a la vista
-        return view('categorias', ['categorias' => $categorias]);
+        return view('usuarios', ['usuarios' => $usuarios]);
     }
 
     public function generatePdf()
     {
         // Obtener todas las categorías
-        $categorias = Categoria::all();
+        $usuarios = Usuario::all();
 
         // Cargar la vista para el PDF
-        $pdf = Pdf::loadView('categorias_pdf', ['categorias' => $categorias]);
+        $pdf = Pdf::loadView('usuarios_pdf', ['usuarios' => $usuarios]);
 
         // Descargar el PDF
-        return $pdf->download('categorias.pdf');
+        return $pdf->download('usuarios.pdf');
     }
 }
