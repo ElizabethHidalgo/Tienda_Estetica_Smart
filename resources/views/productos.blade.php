@@ -167,7 +167,6 @@
         <!-- Navigation Links -->
         <ul id="nav-links" class="hidden lg:flex space-x-6 text-white">
             <li><a href="{{ url('/') }}" class="hover:text-blue-300 text-2xl">Inicio</a></li>
-            <li><a href="#" class="hover:text-blue-300 text-2xl">Servicio</a></li>
             <li><a href="{{ route('productos.index') }}" class="hover:text-blue-300 text-2xl">Productos</a></li>
             <li><a href="{{ route('contacto') }}" class="hover:text-blue-300 text-2xl">Contactos</a></li>
             <li class="cart-icon">
