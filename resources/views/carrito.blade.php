@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Estetica Smart</title>
+    <title>Tecno Centro Smart</title>
     <style>
         body {
             background: url('imagenes/Index.png') no-repeat center center fixed;
@@ -191,6 +191,20 @@
         <button class="btn-crud green" onclick="vaciarCarrito()">Vaciar Carrito</button>
         <button class="btn-crud" onclick="generarFactura()">Generar Factura</button>
     </div>
+
+    <script>
+    function generarFactura() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    
+    if (carrito.length > 0) {
+        // Incluye el subdirectorio en la URL
+        window.location.href = '/Tienda_Estetica_Smart/public/factura';
+    } else {
+        alert('El carrito está vacío. No se puede generar una factura.');
+    }
+}
+
+</script>
 
     <script>
 function mostrarCarrito() {

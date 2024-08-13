@@ -29,3 +29,7 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
+
+Route::get('/factura', function () {
+    return view('factura'); // o la lógica que necesites para generar la vista
+})->name('factura');
