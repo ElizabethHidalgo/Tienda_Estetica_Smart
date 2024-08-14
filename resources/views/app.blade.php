@@ -155,7 +155,7 @@
         <div class="text-content">
             <h1>Encuentra tu <span style="color: #ff5722;">accesorio</span> perfecto para computadoras aquí</h1>
             <p>Explora nuestra amplia selección de accesorios para computadoras, desde potentes mouse y teclados mecánicos hasta componentes de vanguardia. Ofrecemos productos de alta calidad que mejorarán tu experiencia informática.</p>
-            <a href="{{ route('productos.index') }}">Explorar Accesorios</a>
+            <a href="{{ route('productos.index') }}">Explorar Productos</a>
         </div>
         <div class="image-container">
             <img src="imagenes/Ejem_1.png" alt="Accesorios">
