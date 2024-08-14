@@ -47,6 +47,12 @@ Route::get('/login', function () {
 
 
 Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
+
+
+Route::get('/factura', function () {
+    return view('factura'); // o la lógica que necesites para generar la vista
+})->name('factura');
+
 Route::get('/Contacto', function () {
     return view('contacto');
 })->name('contacto');
@@ -57,5 +63,6 @@ Route::get('/categorias', [CategoriaController::class, 'index'])->name('categori
 Route::get('/masinfo', function () {
     return view('masinfo');
 });
+
 
 
