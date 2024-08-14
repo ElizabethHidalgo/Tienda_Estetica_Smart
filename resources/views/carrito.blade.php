@@ -157,7 +157,6 @@
         </div>
         <ul class="nav-links">
             <li><a href="http://localhost/Tienda_Estetica_Smart/public/">Inicio</a></li>
-            <li><a href="#">Servicio</a></li>
             <li><a href="{{ route('productos.index') }}">Productos</a></li>
             <li><a href="#">Contactos</a></li>
             <li class="cart-icon">
