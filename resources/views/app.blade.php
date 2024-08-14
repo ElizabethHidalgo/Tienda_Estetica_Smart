@@ -9,6 +9,90 @@
     <title>Tecno Centro Smart</title>
     <link rel="stylesheet" href="{{ asset('frontend/css/style_home.css') }}">
     <style>
+
+    @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+    .font-family-karla {
+        font-family: karla;
+    }
+
+    body {
+        background: url('imagenes/Index.png') no-repeat center center fixed;
+        background-size: cover;
+
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        height: 100vh;
+    }
+
+
+    .navbar {
+        background: rgba(0, 0, 0, 0);
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-brand {
+        color: #ff5722;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin: 0 1rem;
+    }
+
+    .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .form-control {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        padding: 0.5rem;
+        margin-right: 0.5rem;
+        color: #ffffff;
+        box-shadow: none;
+        height: 2.5rem;
+        width: 300px;
+    }
+
+    /* General body style */
+    body {
+        background: url('imagenes/Index.png') no-repeat center center fixed;
+        background-size: cover;
+        /* Ajustar la imagen al tamaño de la pantalla */
+        color: #ffffff;
+        /* Texto blanco */
+        font-family: 'Arial', sans-serif;
+        /* Familia de fuente */
+        margin: 0;
+        /* Eliminar márgenes por defecto */
+        height: 100vh;
+        /* Altura completa de la vista */
+    }
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
         .font-family-karla {
@@ -85,6 +169,7 @@
             margin: 0;
             height: 100vh;
         }
+
 
     </style>
     <!-- Font Awesome -->
