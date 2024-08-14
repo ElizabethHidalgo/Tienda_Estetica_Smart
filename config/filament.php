@@ -87,6 +87,7 @@ return [
 
     'livewire_loading_delay' => 'default',
 
-
+    // Añadir la configuración del idioma aquí
+    'locale' => 'es',
 
 ];
