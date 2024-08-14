@@ -24,7 +24,7 @@
         height: 100vh;
     }
 
-    /* Navbar style */
+
     .navbar {
         background: rgba(0, 0, 0, 0);
         padding: 1rem;
