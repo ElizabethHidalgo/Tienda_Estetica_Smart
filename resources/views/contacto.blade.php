@@ -225,9 +225,9 @@
                             </svg>
                         </span>
                         <p class="text-2xl font-extrabold text-dark-grey-900">Email</p>
-                        <p class="text-base leading-7 text-dark-grey-600">contactos con nosotros en</p>
+                        <p class="text-base leading-7 text-dark-grey-600">Escribenos a</p>
                         <a class="text-lg font-bold text-purple-blue-500"
-                            href = "mailto: hello@loopple.com">tienda@tenco.com</a>
+                            href = "mailto: hello@loopple.com">tienda@tecno.com</a>
                     </div>
                     <div class="flex flex-col items-center gap-3 px-8 py-10 bg-white rounded-3xl shadow-main">
                         <span>
@@ -239,7 +239,7 @@
                             </svg>
                         </span>
                         <p class="text-2xl font-extrabold text-dark-grey-900">Whatsapp</p>
-                        <p class="text-base leading-7 text-dark-grey-600">Escribenos al </p>
+                        <p class="text-base leading-7 text-dark-grey-600">Contáctanos al</p>
                         <a class="text-lg font-bold text-purple-blue-500" href="https://chat.whatsapp.com/GIxhn3OuJZE2XiOoTTBYcQ">Centro Smart</a>
                     </div>
                     <div class="flex flex-col items-center gap-3 px-8 py-10 bg-white rounded-3xl shadow-main">
