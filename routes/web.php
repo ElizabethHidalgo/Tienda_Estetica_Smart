@@ -4,7 +4,15 @@ use Filament\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\UsuarioController;
 use Livewire\Livewire;
+
+
+Route::get('/categorias/pdf', [CategoriaController::class, 'generatePdf']);
+Route::get('/productos/pdf', [ProductoController::class, 'generatePdf']);
+Route::get('/usuarios/pdf', [UsuarioController::class, 'generatePdf']);
+
 
 Route::get('/', function () {
     return view('app');
@@ -28,9 +36,7 @@ Route::get('/login', function () {
 
 Livewire::setUpdateRoute(function($handle){
 
-   return Route::post('/tienda/public/livewire/update',$handle);
-
-    return Route::post('/Tienda_Estetica_Smart/public/livewire/update',$handle);
+   return Route::post('/Tienda_Estetica_Smart/public/livewire/update',$handle);
 
 });
 
@@ -42,13 +48,21 @@ Route::get('/login', function () {
 
 Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
 
-Livewire::setUpdateRoute(function($handle) {
-    return Route::post('/Tienda_Estetica_Smart/public/livewire/update', $handle);
-});
+
+Route::get('/factura', function () {
+    return view('factura'); // o la lógica que necesites para generar la vista
+})->name('factura');
+
+Route::get('/Contacto', function () {
+    return view('contacto');
+})->name('contacto');
 
 
-Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
+Route::get('/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
 
 Route::get('/masinfo', function () {
     return view('masinfo');
 });
+
+
+

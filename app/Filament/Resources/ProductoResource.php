@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\Action;
 
 class ProductoResource extends Resource
 {
@@ -38,7 +39,7 @@ class ProductoResource extends Resource
                 Forms\Components\FileUpload::make('image_url')
                     ->directory('images') // Guarda las imágenes en el directorio 'images'
                     ->image()
-                    
+                    ->ImageEditor()
                     ->required(),
             ]);
     }
@@ -80,6 +81,13 @@ class ProductoResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+
+            ->headerActions([  // Agrega la acción global aquí
+                Action::make('generatePdf')
+                    ->label('Generar PDF')
+                    ->url(url('/productos/pdf'))
+                    ->color('primary'),
             ]);
     }
 

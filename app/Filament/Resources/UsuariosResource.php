@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\Action;
 
 class UsuariosResource extends Resource
 {
@@ -63,6 +64,12 @@ class UsuariosResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->headerActions([  // Agrega la acción global aquí
+                Action::make('generatePdf')
+                    ->label('Generar PDF')
+                    ->url(url('/usuarios/pdf'))
+                    ->color('primary'),
             ]);
     }
 
