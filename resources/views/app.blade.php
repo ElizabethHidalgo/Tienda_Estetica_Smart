@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+    <title>Tienda Estetica Smart</title>
+    <link rel="stylesheet" href="{{ asset('frontend/css/style_home.css') }}">
+    <style>
+    
     <title>Tecno Centro Smart</title>
     <link rel="stylesheet" href="{{ asset('frontend/css/style_home.css') }}">
     <style>
+
 
     @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
@@ -93,6 +99,13 @@
         height: 100vh;
         /* Altura completa de la vista */
     }
+
+    </style>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+</head>
+
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
         .font-family-karla {
@@ -171,6 +184,78 @@
         }
 
 
+<body>
+
+
+    <nav class="bg-gray-800 bg-opacity-10 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Branding -->
+            <div class="text-white font-bold text-5xl" style="color: #ff5722;">
+                Tecno Centro Smart
+            </div>
+
+            <!-- Toggle button for mobile -->
+            <div class="block lg:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Search bar -->
+            <div class="flex-1 hidden lg:flex justify-center">
+                <div class="flex items-center w-full max-w-xs">
+                    <input
+                        class="form-control flex-grow pl-10 pr-4 py-2 bg-white text-gray-700 rounded-lg focus:outline-none"
+                        type="search" placeholder="🔍 Ingrese su búsqueda" aria-label="Search">
+
+                    <button
+                        class="ml-2 px-4 py-2 text-gray-700 bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none"
+                        type="submit">Buscar</button>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul id="nav-links" class="hidden lg:flex space-x-6 text-white">
+                <li><a href="{{ url('/') }}" class="hover:text-blue-300 text-2xl">Inicio</a></li>
+                <li><a href="{{ route('productos.index') }}" class="hover:text-blue-300 text-2xl">Productos</a></li>
+                <li><a href="{{ route('contacto') }}" class="hover:text-blue-300 text-2xl">Contactos</a></li>
+                <li class="cart-icon">
+                    <a href="ca" class="flex items-center hover:text-blue-300 text-2xl"><i
+                            class="fas fa-shopping-cart mr-2"></i>Carrito</a>
+                </li>
+                <li class="user-icon">
+                    <a href="{{ route('login') }}" class="hover:text-blue-300 text-2xl"><i
+                            class="fas fa-user mr-2"></i>Perfil</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="main-content">
+            <div class="row">
+                <div class="column">
+                    <h1>Encuentra tu </h1>
+                    <h1><span>accesorio</span></h1>
+                    <h1>perfecto para </h1>
+                    <h1>computadoras</h1>
+                    <h1>aquí</h1>
+                    <p></p>
+                    <p></p>
+                    <p>Explora nuestra amplia selección de accesorios para computadoras, desde potentes mouse y teclados
+                        mecánicos hasta componentes de vanguardia. Ofrecemos productos de alta calidad que mejorarán tu
+                        experiencia informática.</p>
+                        <p></p>
+                        <p></p>
+                        <div>
+                        <a href="{{ route('productos.index') }}" class="btn">Explorar Productos</a>
+                    </div>
+                </div>
+
+                <div class="column" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                    <img src="imagenes/Ejem_1.png" style="max-width: 75%; max-height: 75%; vertical-align: middle;">
+                </div>
+
+
     </style>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
@@ -237,9 +322,28 @@
 
                     <button class="ml-2 px-4 py-2 text-gray-700 bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none" type="submit">Buscar</button>
                 </div>
+
             </div>
         </div>
     </nav>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('nav-links');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('hidden');
+            }
+        });
+    });
+    </script>
+    <script>
+    // Script para manejar el toggle del menú en móvil
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    });
 
 
     <!-- Main Content -->
@@ -276,8 +380,14 @@
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
+
     </script>
 
 </body>
 
+
+
 </html>
+
+</html>
+
