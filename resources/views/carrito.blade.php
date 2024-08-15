@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Estetica Smart</title>
+    <title>Tecno Centro Smart</title>
     <style>
         body {
             background: url('imagenes/Index.png') no-repeat center center fixed;
@@ -149,7 +149,7 @@
 
 <body>
     <nav class="navbar">
-        <div class="navbar-brand">Tienda Estetica Smart</div>
+        <div class="navbar-brand">Tecno Centro Smart</div>
         <div class="search-container">
             <input class="form-control me-2" type="search" placeholder="🔍 Ingrese su búsqueda aquí" aria-label="Search" id="search-input">
             <button class="btn-search" type="submit" onclick="buscarProducto()">Buscar</button>
@@ -176,6 +176,7 @@
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
+                        <th>Imagen</th>
                         <th>Producto</th>
                         <th>Precio</th>
                         <th>Acciones</th>
@@ -192,50 +193,51 @@
     </div>
 
     <script>
-        function mostrarCarrito() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const carritoItems = document.getElementById('carrito-items');
-            carritoItems.innerHTML = '';
+    function generarFactura() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    
+    if (carrito.length > 0) {
+        // Incluye el subdirectorio en la URL
+        window.location.href = 'http://10.8.25.20/Tienda_Estetica_Smart/public/factura';
+    } else {
+        alert('El carrito está vacío. No se puede generar una factura.');
+    }
+}
 
-            if (carrito.length === 0) {
-                document.getElementById('carrito').style.display = 'none';
-                document.getElementById('no-items-message').style.display = 'block';
-            } else {
-                document.getElementById('carrito').style.display = 'block';
-                document.getElementById('no-items-message').style.display = 'none';
-                carrito.forEach((item, index) => {
-                    carritoItems.innerHTML += `
-                        <tr>
-                            <td>${item.nombre}</td>
-                            <td>$${item.precio.toFixed(2)}</td>
-                            <td>
-                                <button class="btn-crud green" onclick="editarProducto(${index})">Editar</button>
-                                <button class="btn-crud red" onclick="eliminarProducto(${index})">Eliminar</button>
-                            </td>
-                        </tr>
-                    `;
-                });
-            }
-        }
+</script>
+
+    <script>
+function mostrarCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const carritoItems = document.getElementById('carrito-items');
+    carritoItems.innerHTML = '';
+
+    if (carrito.length === 0) {
+        document.getElementById('carrito').style.display = 'none';
+        document.getElementById('no-items-message').style.display = 'block';
+    } else {
+        document.getElementById('carrito').style.display = 'block';
+        document.getElementById('no-items-message').style.display = 'none';
+        carrito.forEach((item, index) => {
+            carritoItems.innerHTML += `
+                <tr>
+                    <td><img src="${item.imageUrl}" alt="${item.nombre}" style="width: 50px; height: 50px; object-fit: cover;"></td>
+                    <td>${item.nombre}</td>
+                    <td>$${item.precio.toFixed(2)}</td>
+                    <td>
+                        <button class="btn-crud red" onclick="eliminarProducto(${index})">Eliminar</button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+}
 
         function eliminarProducto(index) {
             const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             carrito.splice(index, 1);
             localStorage.setItem('carrito', JSON.stringify(carrito));
             mostrarCarrito();
-        }
-
-        function editarProducto(index) {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const producto = carrito[index];
-            const nuevoPrecio = prompt("Ingrese el nuevo precio para el producto:", producto.precio);
-            if (nuevoPrecio !== null && !isNaN(nuevoPrecio) && parseFloat(nuevoPrecio) >= 0) {
-                producto.precio = parseFloat(nuevoPrecio);
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                mostrarCarrito();
-            } else {
-                alert("Precio inválido. Por favor, ingrese un número válido.");
-            }
         }
 
         function vaciarCarrito() {
@@ -256,5 +258,6 @@
             }
         }
     </script>
+
 </body>
 </html>

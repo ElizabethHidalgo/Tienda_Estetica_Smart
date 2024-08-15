@@ -249,13 +249,13 @@
                         <a href="#" class="hover:opacity-75">
                             <img src="{{ asset('storage/' . $producto->image_url) }}" class="w-full h-64 object-cover">
                         </a>
-                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{$producto->categoria->nombre}}</a>
-                        <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">{{$producto->nombre}}</a>
+                        <a  class="text-blue-700 text-sm font-bold uppercase pb-4">{{$producto->categoria->nombre}}</a>
+                        <a  class="text-3xl font-bold hover:text-gray-700 pb-4">{{$producto->nombre}}</a>
                         <p class="text-sm pb-3">
                             <span class="font-semibold hover:text-gray-800">Información:</span> {{$producto->descripcion}}
                         </p>
                         <span class="pb-6">PRECIO: $ {{$producto->precio}}</span>
-                        <a href="#" class="uppercase text-gray-800 hover:text-black">Más Información <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="uppercase text-gray-800 hover:text-black">Agregar al Carrito <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 @endforeach
