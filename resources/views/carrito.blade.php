@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecno Centro Smart</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-    integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <style>
     @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
     
@@ -171,6 +171,7 @@
 </head>
 
 <body>
+    
     <nav class="navbar">
         <div class="navbar-brand">Tecno Centro Smart</div>
         <div class="search-container">
@@ -230,6 +231,7 @@
 
     <script>
     function mostrarCarrito() {
+        @foreach($productos as $producto
         const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         const carritoItems = document.getElementById('carrito-items');
         carritoItems.innerHTML = '';
@@ -243,6 +245,7 @@
             carrito.forEach((item, index) => {
                 carritoItems.innerHTML += `
                 <tr>
+                
                     <td><img src="${item.imageUrl}" alt="${item.nombre}" style="width: 50px; height: 50px; object-fit: cover;"></td>
                     <td>${item.nombre}</td>
                     <td>$${item.precio.toFixed(2)}</td>
