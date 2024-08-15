@@ -209,7 +209,7 @@
         </div>
         <p id="no-items-message" style="display: none;">No hay productos en el carrito.</p>
         <button class="btn-crud green" onclick="vaciarCarrito()">Vaciar Carrito</button>
-        <button class="btn-crud blue" onclick="window.location.href='/factura'">Generar Factura</button>
+        <button class="btn-crud blue" onclick="window.location.href='/Tienda_Estetica_Smart/public/factura'">Generar Factura</button>
     </div>
     <script>
     function generarFactura() {
