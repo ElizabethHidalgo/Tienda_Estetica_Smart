@@ -143,47 +143,31 @@
 
     <!-- Navbar -->
     <nav class="bg-gray-800 bg-opacity-10 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <!-- Branding -->
-            <div class="text-white font-bold text-5xl" style="color: #ff5722;">
-                Tecno Centro Smart
+    <nav class="navbar">
+            <div class="navbar-brand">Tecno Centro Smart </div>
+            <div class="search-container">
+                <input class="form-control me-2" type="search" placeholder="🔍Ingrese su búsqueda aquí"
+                    aria-label="Search">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <button class="btn-search" type="submit">Buscar</button>
             </div>
-
-            <!-- Toggle button for mobile -->
-            <div class="block lg:hidden">
-                <button id="menu-toggle" class="text-white focus:outline-none">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-
-            <!-- Search bar -->
-            <div class="flex-1 hidden lg:flex justify-center">
-                <div class="flex items-center w-full max-w-xs">
-                    <input
-                        class="form-control flex-grow pl-10 pr-4 py-2 bg-white text-gray-700 rounded-lg focus:outline-none"
-                        type="search" placeholder="🔍 Ingrese su búsqueda" aria-label="Search">
-
-                    <button
-                        class="ml-2 px-4 py-2 text-gray-700 bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none"
-                        type="submit">Buscar</button>
-                </div>
-            </div>
-
-            <!-- Navigation Links -->
-            <ul id="nav-links" class="hidden lg:flex space-x-6 text-white">
+            <ul class="nav-links">
                 <li><a href="{{ url('/') }}" class="hover:text-blue-300 text-2xl">Inicio</a></li>
-                <li><a href="{{ route('productos.index') }}" class="hover:text-blue-300 text-2xl">Productos</a></li>
-                <li><a href="{{ route('contacto') }}" class="hover:text-blue-300 text-2xl">Contactos</a></li>
+
+                <li><a href="{{ route('productos.index') }}">Productos</a></li>
+                <li><a href="{{ route('contacto') }}">Contactos</a></li>
                 <li class="cart-icon">
-                    <a href="ca" class="flex items-center hover:text-blue-300 text-2xl"><i
-                            class="fas fa-shopping-cart mr-2"></i>Carrito</a>
+                    <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
                 </li>
                 <li class="user-icon">
-                    <a href="{{ route('login') }}" class="hover:text-blue-300 text-2xl"><i
-                            class="fas fa-user mr-2"></i>Perfil</a>
+                    <a href="{{ route('login') }}"><i class="fas fa-user"
+                            style="color: white; font-size: 24px;"></i></a>
                 </li>
             </ul>
-        </div>
+        </nav>
+     </div>
 
         <!-- Mobile Navigation -->
         <div id="mobile-menu" class="lg:hidden hidden">
@@ -263,7 +247,8 @@
                     <!-- productos -->
                     <div class="bg-white flex flex-col justify-start p-6">
                         <a href="#" class="hover:opacity-75">
-                            <img src="{{ asset('storage/' . $producto->image_url) }}" class="w-full h-64 object-cover">
+                            <img src="{{ asset('http://localhost/Tienda_Estetica_Smart/storage/app/public/' . $producto->image_url) }}"
+                                class="w-full h-64 object-cover">
                         </a>
                         <a class="text-blue-700 text-sm font-bold uppercase pb-4">{{$producto->categoria->nombre}}</a>
                         <a class="text-3xl font-bold hover:text-gray-700 pb-4">{{$producto->nombre}}</a>

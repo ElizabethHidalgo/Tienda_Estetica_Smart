@@ -305,10 +305,10 @@
             <div class="column">
                 <h1>Encuentra tu </h1>
                 <h1><span>accesorio</span></h1>
-                <h1>perfecto para </h1>
-                <h1>computadoras</h1>
+                <h1>tecnólogico</h1>
+                <h1>perfecto </h1>
                 <h1>aquí</h1>
-                <p>Explora nuestra amplia selección de accesorios para computadoras, desde potentes mouse y teclados
+                <p>Explora nuestra amplia selección de accesorios para tecnólogico, desde potentes mouse y teclados
                     mecánicos hasta componentes de vanguardia. Ofrecemos productos de alta calidad que mejorarán tu
                     experiencia informática.</p>
                 <div>
