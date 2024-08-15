@@ -246,7 +246,7 @@
                     <!-- productos -->
                     <div class="bg-white flex flex-col justify-start p-6">
                         <a href="#" class="hover:opacity-75">
-                            <img src="{{ asset('storage/' . $producto->image_url) }}" class="w-full h-64 object-cover">
+                            <img src="{{ asset('http://localhost/Tienda_Estetica_Smart/storage/app/public/' . $producto->image_url) }}" class="w-full h-64 object-cover">
                         </a>
                         <a class="text-blue-700 text-sm font-bold uppercase pb-4">{{$producto->categoria->nombre}}</a>
                         <a class="text-3xl font-bold hover:text-gray-700 pb-4">{{$producto->nombre}}</a>
