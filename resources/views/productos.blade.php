@@ -282,6 +282,7 @@
     </footer>
 </body>
 
+
 <script>
 function agregarAlCarrito(id, nombre, precio, imageUrl) {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -301,3 +302,5 @@ function agregarAlCarrito(id, nombre, precio, imageUrl) {
 </script>
 
 </html>
+</html>
+
