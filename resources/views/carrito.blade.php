@@ -175,10 +175,9 @@
             <div id="search-message" style="text-align: center; margin-top: 20px; color: white;"></div>
         </div>
         <ul class="nav-links">
-            <li><a href="http://localhost/Tienda_Estetica_Smart/public/">Inicio</a></li>
-            <li><a href="#">Servicio</a></li>
+            <li><a href="http://10.8.25.20/tecno/public/">Inicio</a></li>
             <li><a href="{{ route('productos.index') }}">Productos</a></li>
-            <li><a href="#">Contactos</a></li>
+            <li><a href="http://localhost/Tienda_Estetica_Smart/public/Contacto">Contactos</a></li>
             <li class="cart-icon">
                 <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
             </li>
@@ -286,4 +285,8 @@
 
 </body>
 
+
 </html>
+
+</html>
+
