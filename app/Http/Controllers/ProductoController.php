@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProductoController extends Controller
 {
@@ -22,5 +23,17 @@ class ProductoController extends Controller
             'productos' => $productos,
             'categorias' => $categorias
         ]);
+    }
+
+    public function generatePdf()
+    {
+        // Obtener todos los productos con la relación de categoría
+        $productos = Producto::with('categoria')->get();
+
+        // Cargar la vista para el PDF
+        $pdf = Pdf::loadView('productos_pdf', ['productos' => $productos]);
+
+        // Descargar el PDF
+        return $pdf->download('productos.pdf');
     }
 }

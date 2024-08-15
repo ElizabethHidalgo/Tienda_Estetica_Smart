@@ -5,7 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\UsuarioController;
 use Livewire\Livewire;
+
+
+Route::get('/categorias/pdf', [CategoriaController::class, 'generatePdf']);
+Route::get('/productos/pdf', [ProductoController::class, 'generatePdf']);
+Route::get('/usuarios/pdf', [UsuarioController::class, 'generatePdf']);
+
 
 Route::get('/', function () {
     return view('app');
@@ -50,4 +57,5 @@ Route::get('/categorias', [CategoriaController::class, 'index'])->name('categori
 Route::get('/masinfo', function () {
     return view('masinfo');
 });
+
 
