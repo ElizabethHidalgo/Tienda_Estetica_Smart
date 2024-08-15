@@ -209,7 +209,7 @@
         </div>
         <p id="no-items-message" style="display: none;">No hay productos en el carrito.</p>
         <button class="btn-crud green" onclick="vaciarCarrito()">Vaciar Carrito</button>
-        <a href="#" class="btn-crud blue" onclick="generarFactura()">Generar Factura</a>
+        <a href="factura" class="btn-crud blue" onclick="generarFactura()">Generar Factura</a>
     </div>
     <script>
     function generarFactura() {
