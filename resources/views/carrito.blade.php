@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecno Centro Smart</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+    integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <style>
+    @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+    
     body {
         background: url('imagenes/Index.png') no-repeat center center fixed;
         background-size: cover;
@@ -176,14 +181,13 @@
         </div>
         <ul class="nav-links">
             <li><a href="http://localhost/Tienda_Estetica_Smart/public/">Inicio</a></li>
-            <li><a href="#">Servicio</a></li>
             <li><a href="{{ route('productos.index') }}">Productos</a></li>
             <li><a href="#">Contactos</a></li>
             <li class="cart-icon">
                 <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
             </li>
             <li class="user-icon">
-                <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i>Perfil</a>
+                <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i></a>
             </li>
         </ul>
     </nav>
@@ -209,7 +213,8 @@
         </div>
         <p id="no-items-message" style="display: none;">No hay productos en el carrito.</p>
         <button class="btn-crud green" onclick="vaciarCarrito()">Vaciar Carrito</button>
-        <button class="btn-crud blue" onclick="window.location.href='/Tienda_Estetica_Smart/public/factura'">Generar Factura</button>
+        <button class="btn-crud blue" onclick="window.location.href='/Tienda_Estetica_Smart/public/factura'">Generar
+            Factura</button>
     </div>
     <script>
     function generarFactura() {
