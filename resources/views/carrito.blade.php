@@ -198,7 +198,7 @@
     
     if (carrito.length > 0) {
         // Incluye el subdirectorio en la URL
-        window.location.href = '/Tienda_Estetica_Smart/public/factura';
+        window.location.href = 'http://10.8.25.20/Tienda_Estetica_Smart/public/factura';
     } else {
         alert('El carrito está vacío. No se puede generar una factura.');
     }
