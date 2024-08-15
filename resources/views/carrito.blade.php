@@ -182,7 +182,7 @@
                 <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
             </li>
             <li class="user-icon">
-                <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i>login</a>
+                <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i>Perfil</a>
             </li>
         </ul>
     </nav>
@@ -208,7 +208,7 @@
         </div>
         <p id="no-items-message" style="display: none;">No hay productos en el carrito.</p>
         <button class="btn-crud green" onclick="vaciarCarrito()">Vaciar Carrito</button>
-        <a href="factura" class="btn-crud blue" onclick="generarFactura()">Generar Factura</a>
+        <button class="btn-crud blue" onclick="window.location.href='/Tienda_Estetica_Smart/public/factura'">Generar Factura</button>
     </div>
     <script>
     function generarFactura() {
