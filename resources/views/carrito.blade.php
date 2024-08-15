@@ -183,7 +183,11 @@
                 <a href="ca"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>Carrito</a>
             </li>
             <li class="user-icon">
+<<<<<<< HEAD
                 <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i>login</a>
+=======
+                <a href="{{ route('login') }}"><i class="fas fa-user" style="color: white; font-size: 24px;"></i>Perfil</a>
+>>>>>>> parent of c8d8bd1 (Merge pull request #34 from ElizabethHidalgo/Alex-Caisalitn)
             </li>
         </ul>
     </nav>
@@ -209,7 +213,11 @@
         </div>
         <p id="no-items-message" style="display: none;">No hay productos en el carrito.</p>
         <button class="btn-crud green" onclick="vaciarCarrito()">Vaciar Carrito</button>
+<<<<<<< HEAD
         <a href="factura" class="btn-crud blue" onclick="generarFactura()">Generar Factura</a>
+=======
+        <button class="btn-crud blue" onclick="window.location.href='/Tienda_Estetica_Smart/public/factura'">Generar Factura</button>
+>>>>>>> parent of c8d8bd1 (Merge pull request #34 from ElizabethHidalgo/Alex-Caisalitn)
     </div>
     <script>
     function generarFactura() {

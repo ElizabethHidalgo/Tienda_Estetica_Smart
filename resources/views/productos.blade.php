@@ -141,6 +141,7 @@
 <body class="bg-white font-family-karla">
 
     <!-- Navbar -->
+<<<<<<< HEAD
 <nav class="bg-gray-800 bg-opacity-10 p-4">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Branding -->
@@ -153,6 +154,49 @@
             <button id="menu-toggle" class="text-white focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
+=======
+    <nav class="bg-gray-800 bg-opacity-10 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Branding -->
+            <div class="text-white font-bold text-5xl" style="color: #ff5722;">
+                Tecno Centro Smart
+            </div>
+
+            <!-- Toggle button for mobile -->
+            <div class="block lg:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Search bar -->
+            <div class="flex-1 hidden lg:flex justify-center">
+                <div class="flex items-center w-full max-w-xs">
+                    <input
+                        class="form-control flex-grow pl-10 pr-4 py-2 bg-white text-gray-700 rounded-lg focus:outline-none"
+                        type="search" placeholder="🔍 Ingrese su búsqueda" aria-label="Search">
+
+                    <button
+                        class="ml-2 px-4 py-2 text-gray-700 bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none"
+                        type="submit">Buscar</button>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul id="nav-links" class="hidden lg:flex space-x-6 text-white">
+                <li><a href="{{ url('/') }}" class="hover:text-blue-300 text-2xl">Inicio</a></li>
+                <li><a href="{{ route('productos.index') }}" class="hover:text-blue-300 text-2xl">Productos</a></li>
+                <li><a href="{{ route('contacto') }}" class="hover:text-blue-300 text-2xl">Contactos</a></li>
+                <li class="cart-icon">
+                    <a href="ca" class="flex items-center hover:text-blue-300 text-2xl"><i
+                            class="fas fa-shopping-cart mr-2"></i>Carrito</a>
+                </li>
+                <li class="user-icon">
+                    <a href="{{ route('login') }}" class="hover:text-blue-300 text-2xl"><i
+                            class="fas fa-user mr-2"></i>Perfil</a>
+                </li>
+            </ul>
+>>>>>>> parent of c8d8bd1 (Merge pull request #34 from ElizabethHidalgo/Alex-Caisalitn)
         </div>
 
         <!-- Search bar -->
@@ -278,4 +322,23 @@
     </footer>
 </body>
 
+<<<<<<< HEAD
+=======
+<script>
+function agregarAlCarrito(id, nombre, precio, imageUrl) {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const producto = {
+        id,
+        nombre,
+        precio: parseFloat(precio),
+        imageUrl
+    };
+    carrito.push(producto);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    alert('Producto agregado al carrito');
+    mostrarCarrito();
+}
+</script>
+
+>>>>>>> parent of c8d8bd1 (Merge pull request #34 from ElizabethHidalgo/Alex-Caisalitn)
 </html>
